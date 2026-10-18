@@ -1,0 +1,472 @@
+/* ==========================================================================
+   VoiceID – Giao diện Xác thực Người nói (Phong cách Tối giản & Thanh lịch)
+   Bảng màu: Xanh kỹ thuật (Tech Blue) · Trắng & Slate · Góc cạnh tinh gọn
+   ========================================================================== */
+:root {
+  --vx-bg: #090d16;
+  --vx-panel: #111827;
+  --vx-panel-subtle: #0d1322;
+  --vx-border: #1e293b;
+  --vx-border-light: #334155;
+  --vx-text: #f8fafc;
+  --vx-muted: #94a3b8;
+  --vx-dim: #64748b;
+
+  /* Primary Blue Palette */
+  --vx-accent: #2563eb;
+  --vx-accent-hover: #1d4ed8;
+  --vx-accent-light: #3b82f6;
+  --vx-accent-subtle: rgba(37, 99, 235, 0.12);
+
+  /* Status Colors */
+  --vx-ok: #10b981;
+  --vx-ok-bg: rgba(16, 185, 129, 0.08);
+  --vx-ok-border: rgba(16, 185, 129, 0.35);
+
+  --vx-bad: #ef4444;
+  --vx-bad-bg: rgba(239, 68, 68, 0.08);
+  --vx-bad-border: rgba(239, 68, 68, 0.35);
+
+  --vx-warn: #f59e0b;
+  --vx-warn-bg: rgba(245, 158, 11, 0.08);
+  --vx-warn-border: rgba(245, 158, 11, 0.35);
+
+  /* Compact geometric radiuses */
+  --vx-radius-sm: 4px;
+  --vx-radius-md: 6px;
+  --vx-radius-lg: 8px;
+}
+
+body, .gradio-container {
+  background-color: var(--vx-bg) !important;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(30, 41, 59, 0.25) 0px, transparent 50%) !important;
+  color: var(--vx-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
+.gradio-container {
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+}
+
+footer {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------------- Hero Header */
+.vx-hero {
+  position: relative;
+  padding: 24px 28px;
+  border-radius: var(--vx-radius-lg);
+  border: 1px solid var(--vx-border);
+  background: var(--vx-panel-subtle);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+}
+
+.vx-badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--vx-radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--vx-muted);
+  background: #090d16;
+  border: 1px solid var(--vx-border);
+}
+
+.vx-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vx-accent);
+}
+
+.vx-hero h1 {
+  margin: 12px 0 6px !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+}
+
+.vx-hero p {
+  color: var(--vx-muted);
+  margin: 0 !important;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.vx-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.vx-stat {
+  padding: 12px 14px;
+  border-radius: var(--vx-radius-md);
+  background: #090d16;
+  border: 1px solid var(--vx-border);
+  transition: border-color 0.15s ease;
+}
+
+.vx-stat:hover {
+  border-color: var(--vx-accent-light);
+}
+
+.vx-stat b {
+  display: block;
+  font-size: 19px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.vx-stat span {
+  font-size: 11.5px;
+  color: var(--vx-dim);
+  font-weight: 500;
+  display: block;
+  margin-top: 2px;
+}
+
+@media (max-width: 780px) {
+  .vx-stats { grid-template-columns: repeat(2, 1fr); }
+  .vx-hero h1 { font-size: 22px !important; }
+}
+
+/* ---------------------------------------------------------------- Tabs & Panels */
+.tab-nav button, button[role="tab"] {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  border-radius: var(--vx-radius-sm) !important;
+  transition: color 0.15s ease !important;
+}
+
+button[role="tab"][aria-selected="true"] {
+  color: #ffffff !important;
+  border-color: var(--vx-accent) !important;
+}
+
+.vx-panel {
+  border-radius: var(--vx-radius-lg) !important;
+  border: 1px solid var(--vx-border) !important;
+  background: var(--vx-panel) !important;
+  padding: 16px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) !important;
+}
+
+.vx-hint {
+  color: var(--vx-muted);
+  font-size: 13px;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.vx-hint b {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- Buttons */
+button.primary, .vx-btn {
+  background: var(--vx-accent) !important;
+  border: 1px solid var(--vx-accent-hover) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  border-radius: var(--vx-radius-md) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+button.primary:hover, .vx-btn:hover {
+  background: var(--vx-accent-hover) !important;
+  border-color: #1e40af !important;
+  filter: none !important;
+  transform: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+button.stop {
+  background: #dc2626 !important;
+  border: 1px solid #b91c1c !important;
+  color: #ffffff !important;
+  border-radius: var(--vx-radius-md) !important;
+  font-weight: 600 !important;
+}
+
+button.stop:hover {
+  background: #b91c1c !important;
+  filter: none !important;
+}
+
+/* ---------------------------------------------------------------- Result Cards */
+.vx-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: var(--vx-radius-lg);
+  background: var(--vx-panel-subtle);
+  border: 1px solid var(--vx-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.vx-card.ok {
+  border-left: 4px solid var(--vx-ok);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, var(--vx-panel-subtle) 100%);
+}
+
+.vx-card.bad {
+  border-left: 4px solid var(--vx-bad);
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.05) 0%, var(--vx-panel-subtle) 100%);
+}
+
+.vx-card.warn {
+  border-left: 4px solid var(--vx-warn);
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.05) 0%, var(--vx-panel-subtle) 100%);
+}
+
+.vx-card.idle {
+  border: 1px dashed var(--vx-border);
+  background: transparent;
+  color: var(--vx-dim);
+  justify-content: center;
+  min-height: 110px;
+  font-size: 13.5px;
+}
+
+.vx-gauge {
+  --p: 0;
+  --c: var(--vx-accent);
+  flex: 0 0 auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--vx-border) 0);
+  position: relative;
+}
+
+.vx-gauge::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: #090d16;
+  border: 1px solid var(--vx-border);
+}
+
+.vx-gauge div {
+  position: relative;
+  text-align: center;
+}
+
+.vx-gauge b {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.vx-gauge small {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--vx-muted);
+}
+
+.vx-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.vx-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.vx-card.ok .vx-title { color: var(--vx-ok); }
+.vx-card.bad .vx-title { color: var(--vx-bad); }
+.vx-card.warn .vx-title { color: var(--vx-warn); }
+
+.vx-sub {
+  color: var(--vx-muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+.vx-sub b {
+  color: #ffffff;
+}
+
+.vx-meter {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--vx-border);
+  overflow: visible;
+  margin: 10px 0 14px;
+}
+
+.vx-meter .fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.vx-meter .tick {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 1px;
+}
+
+.vx-meter .tick::after {
+  content: attr(data-l);
+  position: absolute;
+  top: 15px;
+  left: -14px;
+  font-size: 10px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  color: var(--vx-muted);
+  white-space: nowrap;
+}
+
+.vx-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.vx-chip {
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  padding: 3px 8px;
+  border-radius: var(--vx-radius-sm);
+  color: #cbd5e1;
+  background: #090d16;
+  border: 1px solid var(--vx-border);
+}
+
+.vx-list {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vx-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 13px;
+  color: var(--vx-muted);
+}
+
+.vx-list li b {
+  color: #ffffff;
+}
+
+.vx-list li:last-child {
+  border-bottom: none;
+}
+
+.vx-ok { color: var(--vx-ok); }
+.vx-bad { color: var(--vx-bad); }
+.vx-warn { color: var(--vx-warn); }
+
+/* ---------------------------------------------------------------- Pipeline Architecture */
+.vx-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0 8px;
+}
+
+.vx-step {
+  padding: 8px 12px;
+  border-radius: var(--vx-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  background: #090d16;
+  border: 1px solid var(--vx-border);
+  color: #ffffff;
+}
+
+.vx-step small {
+  display: block;
+  font-weight: 400;
+  font-size: 10.5px;
+  color: var(--vx-dim);
+  margin-top: 2px;
+}
+
+.vx-arrow {
+  color: var(--vx-accent-light);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ---------------------------------------------------------------- Recording Script Prompts */
+.vx-prompt-box {
+  background: #090d16;
+  border: 1px solid var(--vx-border);
+  border-left: 3px solid var(--vx-accent);
+  border-radius: var(--vx-radius-sm);
+  padding: 8px 12px;
+  margin: 10px 0 6px;
+}
+
+.vx-prompt-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.vx-prompt-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--vx-accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vx-prompt-dur {
+  font-size: 11px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  color: var(--vx-dim);
+}
+
+.vx-prompt-text {
+  font-size: 13px;
+  color: #f1f5f9;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.vx-prompt-name {
+  color: #60a5fa;
+  font-weight: 700;
+  font-style: normal;
+}
+
