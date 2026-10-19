@@ -1,0 +1,19 @@
+{
+  "n_speakers": 10,
+  "n_utterances": 50,
+  "n_genuine_pairs": 100,
+  "n_imposter_pairs": 1125,
+  "genuine_mean": 0.6661909920588368,
+  "genuine_std": 0.16687628718658584,
+  "imposter_mean": 0.11757591741163742,
+  "imposter_std": 0.1024497229593917,
+  "EER": 0.03133333333333336,
+  "threshold_at_EER": 0.4382692873477936,
+  "AUC": 0.9723377777777777,
+  "threshold": 0.65,
+  "FAR_at_threshold": 0.0,
+  "FRR_at_threshold": 0.33,
+  "accuracy_at_threshold": 0.9730612244897959,
+  "identification_top1_accuracy_LOO": 1.0,
+  "avg_embedding_time_sec": 0.5709824459999981
+}

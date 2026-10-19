@@ -1,0 +1,523 @@
+{
+  "vietnamese_eval": {
+    "dataset": "VIVOS Vietnamese Speech Corpus (10 speakers x 5 utterances)",
+    "n_speakers": 10,
+    "n_utterances": 50,
+    "n_genuine_pairs": 100,
+    "n_imposter_pairs": 1125,
+    "genuine_mean": 0.7364928480982781,
+    "genuine_std": 0.06863218195896496,
+    "imposter_mean": 0.2870279642409749,
+    "imposter_std": 0.11413409258344724,
+    "EER": 0.009000000000000005,
+    "threshold_at_EER": 0.5646892786026001,
+    "AUC": 0.9988355555555556,
+    "threshold": 0.65,
+    "FAR_at_threshold": 0.0,
+    "FRR_at_threshold": 0.11,
+    "accuracy_at_threshold": 0.9910204081632653,
+    "identification_top1_accuracy_LOO": 1.0,
+    "avg_embedding_time_sec": 0.5487555240001529
+  },
+  "librispeech_eval": {
+    "n_speakers": 10,
+    "n_utterances": 50,
+    "n_genuine_pairs": 100,
+    "n_imposter_pairs": 1125,
+    "genuine_mean": 0.6661909920588368,
+    "genuine_std": 0.16687628718658584,
+    "imposter_mean": 0.11757591741163742,
+    "imposter_std": 0.1024497229593917,
+    "EER": 0.03133333333333336,
+    "threshold_at_EER": 0.4382692873477936,
+    "AUC": 0.9723377777777777,
+    "threshold": 0.65,
+    "FAR_at_threshold": 0.0,
+    "FRR_at_threshold": 0.33,
+    "accuracy_at_threshold": 0.9730612244897959,
+    "identification_top1_accuracy_LOO": 1.0,
+    "avg_embedding_time_sec": 0.5709824459999981
+  },
+  "ablation": {
+    "vad_ablation": {
+      "clean_dataset": {
+        "no_vad": {
+          "EER": 0.007222222222222227,
+          "threshold_at_EER": 0.5645241737365723,
+          "AUC": 0.9995377777777777,
+          "genuine_mean": 0.7449214631319045,
+          "genuine_std": 0.06781132580927621,
+          "imposter_mean": 0.2722670600058304,
+          "imposter_std": 0.11689925861863577,
+          "separation_gap": 0.47265440312607415,
+          "FAR_at_thr": 0.10044444444444445,
+          "FRR_at_thr": 0.0,
+          "top1_accuracy_LOO": 1.0,
+          "avg_raw_duration_sec": 4.111625,
+          "avg_speech_duration_sec": 4.111625,
+          "duration_reduction_pct": 0.0,
+          "avg_cpu_time_ms": 644.5911240001442
+        },
+        "energy_vad": {
+          "EER": 0.00944444444444445,
+          "threshold_at_EER": 0.5680028200149536,
+          "AUC": 0.9988088888888889,
+          "genuine_mean": 0.7373841762542724,
+          "genuine_std": 0.070016135029058,
+          "imposter_mean": 0.2838150912390815,
+          "imposter_std": 0.11422083852388139,
+          "separation_gap": 0.45356908501519094,
+          "FAR_at_thr": 0.10666666666666667,
+          "FRR_at_thr": 0.0,
+          "top1_accuracy_LOO": 1.0,
+          "avg_raw_duration_sec": 4.111625,
+          "avg_speech_duration_sec": 3.329025,
+          "duration_reduction_pct": 19.03383698659289,
+          "avg_cpu_time_ms": 564.4644940002036
+        },
+        "silero_vad": {
+          "EER": 0.009000000000000005,
+          "threshold_at_EER": 0.5646892786026001,
+          "AUC": 0.9988355555555556,
+          "genuine_mean": 0.7364928480982781,
+          "genuine_std": 0.06863218195896496,
+          "imposter_mean": 0.2870279642409749,
+          "imposter_std": 0.11413409258344724,
+          "separation_gap": 0.4494648838573032,
+          "FAR_at_thr": 0.11377777777777778,
+          "FRR_at_thr": 0.0,
+          "top1_accuracy_LOO": 1.0,
+          "avg_raw_duration_sec": 4.111625,
+          "avg_speech_duration_sec": 3.2287875,
+          "duration_reduction_pct": 21.471741707962178,
+          "avg_cpu_time_ms": 548.755524000153
+        }
+      },
+      "realistic_mic_padded": {
+        "no_vad": {
+          "EER": 0.01394444444444445,
+          "threshold_at_EER": 0.5355309844017029,
+          "AUC": 0.9991288888888888,
+          "genuine_mean": 0.7185487815737724,
+          "genuine_std": 0.06718340089581173,
+          "imposter_mean": 0.2647081773041023,
+          "imposter_std": 0.11615764889340804,
+          "separation_gap": 0.45384060426967016,
+          "FAR_at_thr": 0.09244444444444444,
+          "FRR_at_thr": 0.005,
+          "top1_accuracy_LOO": 1.0,
+          "avg_raw_duration_sec": 7.111624999999999,
+          "avg_speech_duration_sec": 7.111624999999999,
+          "duration_reduction_pct": 0.0,
+          "avg_cpu_time_ms": 1040.4709559998446
+        },
+        "energy_vad": {
+          "EER": 0.00966666666666667,
+          "threshold_at_EER": 0.5521877408027649,
+          "AUC": 0.9993822222222222,
+          "genuine_mean": 0.7225903216004371,
+          "genuine_std": 0.06495530356448836,
+          "imposter_mean": 0.27233609957827465,
+          "imposter_std": 0.1165906763344145,
+          "separation_gap": 0.4502542220221625,
+          "FAR_at_thr": 0.09688888888888889,
+          "FRR_at_thr": 0.0,
+          "top1_accuracy_LOO": 1.0,
+          "avg_raw_duration_sec": 7.111624999999999,
+          "avg_speech_duration_sec": 6.549024999999999,
+          "duration_reduction_pct": 7.910990807304941,
+          "avg_cpu_time_ms": 699.6453379999002
+        },
+        "silero_vad": {
+          "EER": 0.010333333333333337,
+          "threshold_at_EER": 0.5543662905693054,
+          "AUC": 0.9988733333333334,
+          "genuine_mean": 0.736723130196333,
+          "genuine_std": 0.0673774187208434,
+          "imposter_mean": 0.28367478526797557,
+          "imposter_std": 0.11501989737732829,
+          "separation_gap": 0.4530483449283574,
+          "FAR_at_thr": 0.11022222222222222,
+          "FRR_at_thr": 0.0,
+          "top1_accuracy_LOO": 1.0,
+          "avg_raw_duration_sec": 7.111624999999999,
+          "avg_speech_duration_sec": 3.8001425,
+          "duration_reduction_pct": 46.56435765384141,
+          "avg_cpu_time_ms": 767.6432499998191
+        }
+      }
+    },
+    "centroid_ablation": {
+      "librispeech": {
+        "1": {
+          "k_samples": 1,
+          "EER": 0.041111111111111126,
+          "threshold_at_EER": 0.3387119770050049,
+          "AUC": 0.9868888888888889,
+          "genuine_mean": 0.6953232125937938,
+          "genuine_std": 0.144877729692685,
+          "imposter_mean": 0.11564679951096575,
+          "imposter_std": 0.10986133867847234,
+          "top1_accuracy": 0.96
+        },
+        "2": {
+          "k_samples": 2,
+          "EER": 0.020000000000000018,
+          "threshold_at_EER": 0.5284513235092163,
+          "AUC": 0.9804444444444443,
+          "genuine_mean": 0.7249925124645233,
+          "genuine_std": 0.1518683152302222,
+          "imposter_mean": 0.12141595397041076,
+          "imposter_std": 0.10939274303098769,
+          "top1_accuracy": 0.96
+        },
+        "3": {
+          "k_samples": 3,
+          "EER": 0.0188888888888889,
+          "threshold_at_EER": 0.4076869487762451,
+          "AUC": 0.9994666666666666,
+          "genuine_mean": 0.7522768133878708,
+          "genuine_std": 0.11062621050737328,
+          "imposter_mean": 0.13328522303866017,
+          "imposter_std": 0.11092408788017645,
+          "top1_accuracy": 1.0
+        },
+        "4": {
+          "k_samples": 4,
+          "EER": 0.01111111111111112,
+          "threshold_at_EER": 0.4413754940032959,
+          "AUC": 0.9985777777777778,
+          "genuine_mean": 0.7666585737466812,
+          "genuine_std": 0.10758593285025651,
+          "imposter_mean": 0.13707052070130077,
+          "imposter_std": 0.10791558154361028,
+          "top1_accuracy": 1.0
+        }
+      },
+      "vietnamese": {
+        "1": {
+          "k_samples": 1,
+          "EER": 0.017777777777777788,
+          "threshold_at_EER": 0.5556222796440125,
+          "AUC": 0.9975555555555555,
+          "genuine_mean": 0.7262648689746857,
+          "genuine_std": 0.061583399257478334,
+          "imposter_mean": 0.30178386073973446,
+          "imposter_std": 0.11556798842187413,
+          "top1_accuracy": 1.0
+        },
+        "2": {
+          "k_samples": 2,
+          "EER": 0.0022222222222222222,
+          "threshold_at_EER": 0.5763667821884155,
+          "AUC": 0.9999111111111111,
+          "genuine_mean": 0.7889719414710998,
+          "genuine_std": 0.05771145756472399,
+          "imposter_mean": 0.31128397771053845,
+          "imposter_std": 0.11612149819533808,
+          "top1_accuracy": 1.0
+        },
+        "3": {
+          "k_samples": 3,
+          "EER": 0.0011111111111111111,
+          "threshold_at_EER": 0.6035672426223755,
+          "AUC": 0.9999555555555555,
+          "genuine_mean": 0.8113410651683808,
+          "genuine_std": 0.05327229123147588,
+          "imposter_mean": 0.3188429990079668,
+          "imposter_std": 0.11661773220316565,
+          "top1_accuracy": 1.0
+        },
+        "4": {
+          "k_samples": 4,
+          "EER": 0.0,
+          "threshold_at_EER": 0.6312610507011414,
+          "AUC": 1.0,
+          "genuine_mean": 0.8221769404411315,
+          "genuine_std": 0.051189490341905945,
+          "imposter_mean": 0.3197480799588892,
+          "imposter_std": 0.11646197851979614,
+          "top1_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "baseline_comparison": {
+    "librispeech": {
+      "mfcc_cosine": {
+        "name": "MFCC (60-D) + Stat Pooling + Cosine",
+        "dim": 120,
+        "EER": 0.1806666666666667,
+        "threshold_at_EER": 0.9992232322692871,
+        "AUC": 0.8885866666666666,
+        "top1_accuracy_LOO": 0.86,
+        "cpu_time_ms": 10.25335600003018
+      },
+      "mfcc_gmm_ubm": {
+        "name": "MFCC (60-D CMVN) + GMM-UBM (MAP, M=16)",
+        "dim": "16x60 GMM",
+        "EER": 0.08177777777777775,
+        "threshold_at_EER": -0.7742627090585702,
+        "AUC": 0.9774222222222222,
+        "top1_accuracy_LOO": 0.94,
+        "cpu_time_ms": 103.0787219999911
+      },
+      "ecapa_tdnn": {
+        "name": "ECAPA-TDNN Pretrained (192-D) + Cosine",
+        "dim": 192,
+        "EER": 0.03133333333333336,
+        "threshold_at_EER": 0.4382692873477936,
+        "AUC": 0.9723377777777777,
+        "top1_accuracy_LOO": 1.0,
+        "cpu_time_ms": 1028.4828880000714
+      }
+    },
+    "vietnamese": {
+      "mfcc_cosine": {
+        "name": "MFCC (60-D) + Stat Pooling + Cosine",
+        "dim": 120,
+        "EER": 0.0507777777777778,
+        "threshold_at_EER": 0.9992861747741699,
+        "AUC": 0.9871022222222223,
+        "top1_accuracy_LOO": 0.98,
+        "cpu_time_ms": 5.126488000023528
+      },
+      "mfcc_gmm_ubm": {
+        "name": "MFCC (60-D CMVN) + GMM-UBM (MAP, M=16)",
+        "dim": "16x60 GMM",
+        "EER": 0.0377777777777778,
+        "threshold_at_EER": -0.2928405140385831,
+        "AUC": 0.9917244444444444,
+        "top1_accuracy_LOO": 1.0,
+        "cpu_time_ms": 35.42641400003049
+      },
+      "ecapa_tdnn": {
+        "name": "ECAPA-TDNN Pretrained (192-D) + Cosine",
+        "dim": 192,
+        "EER": 0.009000000000000005,
+        "threshold_at_EER": 0.5646892786026001,
+        "AUC": 0.9988355555555556,
+        "top1_accuracy_LOO": 1.0,
+        "cpu_time_ms": 548.755524000153
+      }
+    }
+  },
+  "extended_evaluation": {
+    "noise_robustness": {
+      "white": {
+        "clean": {
+          "EER": 0.009000000000000005,
+          "threshold_at_EER": 0.4936301112174988,
+          "AUC": 0.9988355555555556,
+          "genuine_mean": 0.7364928480982781,
+          "genuine_std": 0.08765973326270164,
+          "imposter_mean": 0.2870279642409749,
+          "imposter_std": 0.11252859741031536,
+          "separation_gap": 0.43995249653524826,
+          "FAR_at_thr": 0.10666666666666667,
+          "FRR_at_thr": 0.01,
+          "top1_accuracy_LOO": 1.0
+        },
+        "20dB": {
+          "snr_db": 20,
+          "EER": 0.042277777777777796,
+          "threshold_at_EER": 0.4975978434085846,
+          "AUC": 0.9927555555555555,
+          "genuine_mean": 0.6771630370616912,
+          "imposter_mean": 0.2821553709821569,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.11122222222222222
+        },
+        "15dB": {
+          "snr_db": 15,
+          "EER": 0.040666666666666684,
+          "threshold_at_EER": 0.5029585361480713,
+          "AUC": 0.9917400000000001,
+          "genuine_mean": 0.6632308048009873,
+          "imposter_mean": 0.2902147012849649,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.15844444444444444
+        },
+        "10dB": {
+          "snr_db": 10,
+          "EER": 0.05616666666666669,
+          "threshold_at_EER": 0.48453205823898315,
+          "AUC": 0.9844466666666667,
+          "genuine_mean": 0.6251057375967503,
+          "imposter_mean": 0.2814014404349857,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.21055555555555555
+        },
+        "5dB": {
+          "snr_db": 5,
+          "EER": 0.07505555555555554,
+          "threshold_at_EER": 0.44995445013046265,
+          "AUC": 0.9796622222222222,
+          "genuine_mean": 0.5820376516878605,
+          "imposter_mean": 0.2705188280851063,
+          "top1_accuracy": 0.98,
+          "baseline_gmm_EER": 0.24516666666666664
+        },
+        "0dB": {
+          "snr_db": 0,
+          "EER": 0.10472222222222222,
+          "threshold_at_EER": 0.39848312735557556,
+          "AUC": 0.9591822222222223,
+          "genuine_mean": 0.502299245595932,
+          "imposter_mean": 0.24354630939372712,
+          "top1_accuracy": 0.94,
+          "baseline_gmm_EER": 0.28494444444444444
+        }
+      },
+      "pink": {
+        "clean": {
+          "EER": 0.009000000000000005,
+          "threshold_at_EER": 0.4936301112174988,
+          "AUC": 0.9988355555555556,
+          "genuine_mean": 0.7364928480982781,
+          "genuine_std": 0.08765973326270164,
+          "imposter_mean": 0.2870279642409749,
+          "imposter_std": 0.11252859741031536,
+          "separation_gap": 0.43995249653524826,
+          "FAR_at_thr": 0.10666666666666667,
+          "FRR_at_thr": 0.01,
+          "top1_accuracy_LOO": 1.0
+        },
+        "20dB": {
+          "snr_db": 20,
+          "EER": 0.04605555555555557,
+          "threshold_at_EER": 0.49636024236679077,
+          "AUC": 0.9939555555555556,
+          "genuine_mean": 0.6951240266859532,
+          "imposter_mean": 0.2796766744992799,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.06561111111111109
+        },
+        "15dB": {
+          "snr_db": 15,
+          "EER": 0.04338888888888891,
+          "threshold_at_EER": 0.500801682472229,
+          "AUC": 0.9931888888888889,
+          "genuine_mean": 0.6801007553935051,
+          "imposter_mean": 0.28033847511642507,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.09483333333333333
+        },
+        "10dB": {
+          "snr_db": 10,
+          "EER": 0.04561111111111113,
+          "threshold_at_EER": 0.48908787965774536,
+          "AUC": 0.9926955555555554,
+          "genuine_mean": 0.6619625872373581,
+          "imposter_mean": 0.28198490709149177,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.14472222222222222
+        },
+        "5dB": {
+          "snr_db": 5,
+          "EER": 0.051055555555555576,
+          "threshold_at_EER": 0.4900280237197876,
+          "AUC": 0.9883977777777777,
+          "genuine_mean": 0.6247201900184155,
+          "imposter_mean": 0.2774999645288206,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.19527777777777777
+        },
+        "0dB": {
+          "snr_db": 0,
+          "EER": 0.0847222222222222,
+          "threshold_at_EER": 0.42415881156921387,
+          "AUC": 0.9726199999999999,
+          "genuine_mean": 0.5606962352246047,
+          "imposter_mean": 0.2532783588069595,
+          "top1_accuracy": 0.96,
+          "baseline_gmm_EER": 0.2757222222222222
+        }
+      },
+      "babble": {
+        "clean": {
+          "EER": 0.009000000000000005,
+          "threshold_at_EER": 0.4936301112174988,
+          "AUC": 0.9988355555555556,
+          "genuine_mean": 0.7364928480982781,
+          "genuine_std": 0.08765973326270164,
+          "imposter_mean": 0.2870279642409749,
+          "imposter_std": 0.11252859741031536,
+          "separation_gap": 0.43995249653524826,
+          "FAR_at_thr": 0.10666666666666667,
+          "FRR_at_thr": 0.01,
+          "top1_accuracy_LOO": 1.0
+        },
+        "20dB": {
+          "snr_db": 20,
+          "EER": 0.03661111111111112,
+          "threshold_at_EER": 0.5065487623214722,
+          "AUC": 0.9943777777777778,
+          "genuine_mean": 0.7075954426825046,
+          "imposter_mean": 0.2878999917834169,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.040666666666666684
+        },
+        "15dB": {
+          "snr_db": 15,
+          "EER": 0.040666666666666684,
+          "threshold_at_EER": 0.502163827419281,
+          "AUC": 0.9946755555555555,
+          "genuine_mean": 0.6896954786777496,
+          "imposter_mean": 0.28586169817381435,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.07055555555555554
+        },
+        "10dB": {
+          "snr_db": 10,
+          "EER": 0.04450000000000002,
+          "threshold_at_EER": 0.4924689829349518,
+          "AUC": 0.9924488888888889,
+          "genuine_mean": 0.6501947908103466,
+          "imposter_mean": 0.27889827153169444,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.11394444444444443
+        },
+        "5dB": {
+          "snr_db": 5,
+          "EER": 0.08761111111111108,
+          "threshold_at_EER": 0.42044946551322937,
+          "AUC": 0.9753,
+          "genuine_mean": 0.5932188800722361,
+          "imposter_mean": 0.2617190663611723,
+          "top1_accuracy": 1.0,
+          "baseline_gmm_EER": 0.18111111111111114
+        },
+        "0dB": {
+          "snr_db": 0,
+          "EER": 0.20516666666666666,
+          "threshold_at_EER": 0.30008015036582947,
+          "AUC": 0.8727444444444445,
+          "genuine_mean": 0.4358096786402166,
+          "imposter_mean": 0.22316818043496459,
+          "top1_accuracy": 0.76,
+          "baseline_gmm_EER": 0.28922222222222227
+        }
+      }
+    },
+    "cross_lingual_and_gender": {
+      "librispeech_english": {
+        "EER_overall": 0.03133333333333336,
+        "EER_same_gender_imposter": 0.03300000000000003,
+        "EER_cross_gender_imposter": 0.06520000000000004,
+        "genuine_mean": 0.6661909920588368,
+        "same_gender_imposter_mean": 0.16792659887962508,
+        "cross_gender_imposter_mean": 0.07729537223724728
+      },
+      "vivos_vietnamese": {
+        "EER_overall": 0.009000000000000005,
+        "EER_same_gender_imposter": 0.015873,
+        "EER_cross_gender_imposter": 0.004167,
+        "genuine_mean": 0.7364928480982781,
+        "same_gender_imposter_mean": 0.3678419668759618,
+        "cross_gender_imposter_mean": 0.2119931439931194
+      }
+    }
+  },
+  "total_experiment_runtime_sec": 867.119805600003
+}

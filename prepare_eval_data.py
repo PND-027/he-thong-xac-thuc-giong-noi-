@@ -38,8 +38,48 @@ MIRRORS = [
     "https://us.openslr.org/resources/12/dev-clean.tar.gz",
     "https://openslr.trmal.net/resources/12/dev-clean.tar.gz",
 ]
+VIVOS_URL = "https://zenodo.org/records/7068130/files/vivos.tar.gz"
 MIN_DUR, MAX_DUR = 3.0, 12.0      # Chọn câu dài 3–12 s (sau VAD vẫn ≥ 2 s)
 MAX_CANDIDATES_PER_CHAPTER = 8
+
+
+def download_vivos(speakers: int, utts: int, out: Path) -> None:
+    """Tải tập con tiếng Việt VIVOS (AILAB VNU-HCM, Zenodo DOI 10.5281/zenodo.7068130)."""
+    print(f"🌐 Kết nối kho ngữ liệu tiếng Việt VIVOS: {VIVOS_URL}")
+    resp = requests.get(VIVOS_URL, stream=True, timeout=30)
+    resp.raise_for_status()
+    out.mkdir(parents=True, exist_ok=True)
+    counts: dict = defaultdict(int)
+    meta: dict = defaultdict(lambda: {"files": {}})
+
+    reader = _CountingReader(resp.raw)
+    with tarfile.open(fileobj=io.BufferedReader(reader, 1 << 20), mode="r|gz") as tar:
+        for m in tar:
+            if m.name in ("vivos/test/genders.tsv", "vivos/test/prompts.txt"):
+                (out / Path(m.name).name).write_bytes(tar.extractfile(m).read())
+            elif m.isfile() and m.name.startswith("vivos/test/waves/") and m.name.endswith(".wav"):
+                spk = m.name.split("/")[3]
+                if counts.get(spk, 0) >= utts:
+                    if len(counts) >= speakers and all(v >= utts for v in list(counts.values())[:speakers]):
+                        break
+                    continue
+                if spk not in counts and len(counts) >= speakers:
+                    continue
+                data = tar.extractfile(m).read()
+                dur = sf.info(io.BytesIO(data)).duration
+                if dur >= 2.8:
+                    counts[spk] += 1
+                    d = out / spk
+                    d.mkdir(parents=True, exist_ok=True)
+                    fname = Path(m.name).name
+                    (d / fname).write_bytes(data)
+                    meta[spk]["speaker_id"] = spk
+                    meta[spk]["files"][fname] = round(dur, 2)
+                    print(f"\r  ✓ {spk}: #{counts[spk]}/{utts} ({dur:.2f}s)          ", flush=True)
+    resp.close()
+    (out / "speakers.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"✅ Đã lưu {len(counts)} người nói tiếng Việt vào {out}")
+
 
 
 class _CountingReader(io.RawIOBase):
@@ -87,11 +127,17 @@ def select(cands: dict, k: int) -> list:
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Tải tập con LibriSpeech dev-clean để đánh giá")
-    ap.add_argument("--speakers", type=int, default=10, help="Số người nói (chia đều nam/nữ)")
+    ap = argparse.ArgumentParser(description="Tải tập con LibriSpeech hoặc VIVOS (Tiếng Việt) để đánh giá")
+    ap.add_argument("--dataset", choices=["librispeech", "vivos"], default="librispeech")
+    ap.add_argument("--speakers", type=int, default=10, help="Số người nói")
     ap.add_argument("--utts", type=int, default=5, help="Số câu mỗi người")
-    ap.add_argument("--out", type=Path, default=config.DATA_DIR / "eval_librispeech")
+    ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
+    if args.out is None:
+        args.out = config.EVAL_DIR if args.dataset == "vivos" else (config.DATA_DIR / "eval_librispeech")
+    if args.dataset == "vivos":
+        download_vivos(args.speakers, args.utts, args.out)
+        return
 
     need = {"F": args.speakers // 2, "M": args.speakers - args.speakers // 2}
     genders: dict = {}

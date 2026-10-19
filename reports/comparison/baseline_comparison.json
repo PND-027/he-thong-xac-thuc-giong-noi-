@@ -1,0 +1,60 @@
+{
+  "librispeech": {
+    "mfcc_cosine": {
+      "name": "MFCC (60-D) + Stat Pooling + Cosine",
+      "dim": 120,
+      "EER": 0.1806666666666667,
+      "threshold_at_EER": 0.9992232322692871,
+      "AUC": 0.8885866666666666,
+      "top1_accuracy_LOO": 0.86,
+      "cpu_time_ms": 10.25335600003018
+    },
+    "mfcc_gmm_ubm": {
+      "name": "MFCC (60-D CMVN) + GMM-UBM (MAP, M=16)",
+      "dim": "16x60 GMM",
+      "EER": 0.08177777777777775,
+      "threshold_at_EER": -0.7742627090585702,
+      "AUC": 0.9774222222222222,
+      "top1_accuracy_LOO": 0.94,
+      "cpu_time_ms": 103.0787219999911
+    },
+    "ecapa_tdnn": {
+      "name": "ECAPA-TDNN Pretrained (192-D) + Cosine",
+      "dim": 192,
+      "EER": 0.03133333333333336,
+      "threshold_at_EER": 0.4382692873477936,
+      "AUC": 0.9723377777777777,
+      "top1_accuracy_LOO": 1.0,
+      "cpu_time_ms": 1028.4828880000714
+    }
+  },
+  "vietnamese": {
+    "mfcc_cosine": {
+      "name": "MFCC (60-D) + Stat Pooling + Cosine",
+      "dim": 120,
+      "EER": 0.0507777777777778,
+      "threshold_at_EER": 0.9992861747741699,
+      "AUC": 0.9871022222222223,
+      "top1_accuracy_LOO": 0.98,
+      "cpu_time_ms": 5.126488000023528
+    },
+    "mfcc_gmm_ubm": {
+      "name": "MFCC (60-D CMVN) + GMM-UBM (MAP, M=16)",
+      "dim": "16x60 GMM",
+      "EER": 0.0377777777777778,
+      "threshold_at_EER": -0.2928405140385831,
+      "AUC": 0.9917244444444444,
+      "top1_accuracy_LOO": 1.0,
+      "cpu_time_ms": 35.42641400003049
+    },
+    "ecapa_tdnn": {
+      "name": "ECAPA-TDNN Pretrained (192-D) + Cosine",
+      "dim": 192,
+      "EER": 0.009000000000000005,
+      "threshold_at_EER": 0.5646892786026001,
+      "AUC": 0.9988355555555556,
+      "top1_accuracy_LOO": 1.0,
+      "cpu_time_ms": 548.755524000153
+    }
+  }
+}

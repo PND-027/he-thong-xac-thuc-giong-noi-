@@ -30,7 +30,7 @@ pretrained_models/
 *.h5
 
 # =============================================================================
-# Dữ liệu âm thanh & Cơ sở dữ liệu SQLite
+# Dữ liệu âm thanh & Cơ sở dữ liệu SQLite (Không đưa lên Git)
 # =============================================================================
 data/database.db
 *.db
@@ -38,6 +38,7 @@ data/database.db
 *.sqlite3
 data/eval/
 data/eval_librispeech/
+data/eval_noisy/
 *.wav
 *.mp3
 *.flac
@@ -50,7 +51,6 @@ data/eval_librispeech/
 .gradio/
 flagged/
 *.log
-reports/
 
 # =============================================================================
 # Kế hoạch & ghi chú nội bộ (không đẩy lên Git)
